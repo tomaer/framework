@@ -15,6 +15,10 @@
  */
 package com.tomaer.framework.common.logger;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 /**
  * Description:
  * Author: tomaer
@@ -23,7 +27,52 @@ package com.tomaer.framework.common.logger;
  */
 public class LoggerFactory {
 
-    public static Logger getLogger(Class<?> clazz){
-        return null;
+    private static volatile LoggerAdapter LOGGER_ADAPTER;
+    private static final ConcurrentMap<String, AbstractLogger> LOGGERS = new ConcurrentHashMap<String, AbstractLogger>();
+
+    private LoggerFactory() {
+
     }
+
+    public static void setAdapter(LoggerAdapter adapter) {
+        if (adapter != null) {
+            Logger logger = adapter.getLogger(LoggerFactory.class);
+            logger.debug("Useing Logger Adapter : " + adapter.getClass().getName());
+            logger.debug("Useing Logger Provider : " + logger.getClass().getName());
+            LoggerFactory.LOGGER_ADAPTER = adapter;
+            for (Map.Entry<String, AbstractLogger> entry : LOGGERS.entrySet()) {
+                entry.getValue().setLogger(LOGGER_ADAPTER.getLogger(entry.getKey()));
+            }
+        }
+    }
+
+    public static Logger getLogger(Class<?> clazz) {
+        return getLogger(clazz.getName());
+    }
+
+    public static Logger getLogger(String name) {
+        AbstractLogger logger = LOGGERS.get(name);
+        if (logger == null) {
+            LOGGERS.putIfAbsent(name, new LoggerExt(LOGGER_ADAPTER.getLogger(name)));
+            logger = LOGGERS.get(name);
+        }
+        return logger;
+    }
+
+    public static void setLevel(Level level) {
+        LOGGER_ADAPTER.setLevel(level);
+    }
+
+    public static Level getLevel() {
+        Level level = LOGGER_ADAPTER.getLevel();
+        if (null == level) {
+            setLevel(Level.ERROR);
+        }
+        return LOGGER_ADAPTER.getLevel();
+    }
+
+    public static File getFile() {
+        return LOGGER_ADAPTER.getFile();
+    }
+    
 }
