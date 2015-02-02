@@ -15,8 +15,12 @@
  */
 package com.tomaer.framework.common.mail;
 
+import com.tomaer.framework.BaseCommonTest;
 import com.tomaer.framework.common.mail.smtp.MailSender;
 import com.tomaer.framework.common.mail.smtp.SimpleMessage;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
 import javax.mail.MessagingException;
 
@@ -26,22 +30,25 @@ import javax.mail.MessagingException;
  * Version: 1.0
  * Date: 2015/2/2 20:34
  */
-public class MailTest {
+@ContextConfiguration(locations = { "classpath:/META-INF/configuration/spring-test-email.xml" })
+public class MailTest extends BaseCommonTest{
     
-//    @Auto
+    @Autowired
     private MailSender mailSender;
-//    @Test
+    
+    @Test
     public void testSendSimpleMessage(){
         SimpleMessage message = new SimpleMessage();
-        message.setFrom("");
+        message.setFrom("i@tomaer.com");
         message.setFromAlias("tomaer");
-        message.setSubject("");
+        message.setSubject("This is a test email from tomaer");
         message.setTos(new String[]{"tomaer@126.com","tomaer@foxmail.com"});
         message.setContent("This is a test email by javamail");
         try {
             mailSender.sendSimpleMail(message);
         } catch (MessagingException ex) {
-            e.printStackTrace();
+            logger.error(ex);
+            ex.printStackTrace();
         }
     }
 }

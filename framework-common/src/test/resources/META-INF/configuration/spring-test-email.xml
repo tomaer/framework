@@ -1,0 +1,19 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder ignore-resource-not-found="true"
+		location="classpath*:/META-INF/configuration/environments/test-mail.properties" />
+
+	<bean id="mailSender" class="com.tomaer.framework.common.mail.smtp.MailSenderProvider">
+		<property name="account" value="${mail.account}" />
+		<property name="password" value="${mail.password}" />
+		<property name="auth" value="${mail.auth}" />
+		<property name="debug" value="${mail.debug}" />
+		<property name="requiredSSL" value="${mail.requiredSSL}" />
+		<property name="smtpHost" value="${mail.smtpHost}" />
+		<property name="smtpPort" value="${mail.smtpPort}" />
+	</bean>
+
+</beans>
