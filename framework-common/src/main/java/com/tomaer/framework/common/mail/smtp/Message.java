@@ -240,7 +240,7 @@ public class Message implements Serializable {
         }
         InternetAddress[] address = new InternetAddress[replys.length];
         for (int i = 0; i < replys.length; i++) {
-            logger.debug("BCC address is {0}", new Object[]{replys[i]});
+            logger.debug("Reply address is {0}", new Object[]{replys[i]});
             address[i] = new InternetAddress(replys[i]);
         }
         return address;
