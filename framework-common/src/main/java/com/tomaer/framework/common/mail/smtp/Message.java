@@ -15,7 +15,14 @@
  */
 package com.tomaer.framework.common.mail.smtp;
 
+import com.tomaer.framework.common.logger.Logger;
+import com.tomaer.framework.common.logger.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 /**
@@ -25,8 +32,10 @@ import java.util.Arrays;
  * Date: 2015/2/2 16:14
  */
 public class Message implements Serializable {
-    
+
     private static final long serialVersionUID = 4193902402250439755L;
+
+    final Logger logger = LoggerFactory.getLogger(Message.class);
 
     /**
      * 发件人
@@ -72,7 +81,7 @@ public class Message implements Serializable {
      * 默认构造方法
      */
     public Message() {
-        
+
     }
 
     /**
@@ -154,13 +163,88 @@ public class Message implements Serializable {
     }
 
     public String getContent() {
-        return content;
+        retur content;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
+    /**
+     * 获得发件人信息的InternetAddress格式
+     * @return
+     * @throws AddressException
+     */
+    public InternetAddress getFromAddress() throws AddressException {
+        if (StringUtils.isNotBlank(from)) {
+            try {
+                if (StringUtils.isNotBlank(fromAlias)) {
+                    logger.debug("From address is {0},Alias is {1}", new Object[]{from, fromAlias});
+                    return new InternetAddress(from, fromAlias);
+                } else {
+                    logger.debug("From address is {0}", new Object[]{from});
+                    return new InternetAddress(from);
+                }
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+        logger.error("From address is not allow empty");
+        throw new IllegalArgumentException("From address is not allow empty");
+    }
+
+    public InternetAddress[] getToAddress() throws AddressException {
+        if (null == tos && tos.length == 0) {
+            logger.error("To address is not allow empty");
+            throw new IllegalArgumentException("To address is not allow empty");
+        }
+        InternetAddress[] address = new InternetAddress[tos.length];
+        for (int i = 0; i < tos.length; i++) {
+            logger.debug("To address is {0}", new Object[]{tos[i]});
+            address[i] = new InternetAddress(tos[i]);
+        }
+        return address;
+    }
+
+    public InternetAddress[] getCcAddress() throws AddressException {
+        if (null == ccs && ccs.length == 0) {
+            logger.error("CC address is not allow empty");
+            throw new IllegalArgumentException("CC address is not allow empty");
+        }
+        InternetAddress[] address = new InternetAddress[ccs.length];
+        for (int i = 0; i < ccs.length; i++) {
+            logger.debug("CC address is {0}", new Object[]{ccs[i]});
+            address[i] = new InternetAddress(ccs[i]);
+        }
+        return address;
+    }
+
+    public InternetAddress[] getBccAddress() throws AddressException {
+        if (null == bccs && bccs.length == 0) {
+            logger.error("BCC address is not allow empty");
+            throw new IllegalArgumentException("BCC address is not allow empty");
+        }
+        InternetAddress[] address = new InternetAddress[bccs.length];
+        for (int i = 0; i < bccs.length; i++) {
+            logger.debug("BCC address is {0}", new Object[]{bccs[i]});
+            address[i] = new InternetAddress(bccs[i]);
+        }
+        return address;
+    }
+
+    public InternetAddress[] getReplyAddress() throws AddressException {
+        if (null == replys && replys.length == 0) {
+            logger.error("Reply address is not allow empty");
+            throw new IllegalArgumentException("Reply address is not allow empty");
+        }
+        InternetAddress[] address = new InternetAddress[replys.length];
+        for (int i = 0; i < replys.length; i++) {
+            logger.debug("BCC address is {0}", new Object[]{replys[i]});
+            address[i] = new InternetAddress(replys[i]);
+        }
+        return address;
+    }
 
     @Override
     public boolean equals(Object o) {

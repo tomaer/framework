@@ -55,6 +55,7 @@
         <jdk.version>1.7</jdk.version>
 
         <junit.version>4.12</junit.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
         <javax-mail.version>1.4.7</javax-mail.version>
 
         <!-- Apache Maven Plugins -->
@@ -127,6 +128,14 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+                <type>jar</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+                <scope>compile</scope>
                 <type>jar</type>
             </dependency>
             
