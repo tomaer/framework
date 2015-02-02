@@ -15,21 +15,36 @@
  */
 package com.tomaer.framework.common.mail.smtp;
 
+import java.util.List;
+
 /**
- * Description:简单格式的邮件信息主体,常用于简单的文本格式
+ * Description:
  * Author: tomaer
  * Version: 1.0
- * Date: 2015/2/2 16:23
+ * Date: 2015/2/2 17:12
  */
-public class SimpleMessage extends Message {
+public class ComplexMessage extends Message {
 
-    private static final long serialVersionUID = -2966915199420419977L;
+    private static final long serialVersionUID = -5796193977031423052L;
 
+    private List<String> attachs;
+
+    public List<String> getAttachs() {
+        return attachs;
+    }
+
+    public void setAttachs(List<String> attachs) {
+        this.attachs = attachs;
+    }
+
+    public ComplexMessage(){
+        super();
+    }
     /**
      * 默认构造方法
      */
-    public SimpleMessage() {
-        super();
+    public ComplexMessage(List<String> attachs) {
+        this.attachs = attachs;
     }
 
     /**
@@ -43,7 +58,8 @@ public class SimpleMessage extends Message {
      * @param replys
      * @param content
      */
-    public SimpleMessage(String from, String fromAlias, String subject, String[] tos, String[] ccs, String[] bccs, String[] replys, String content) {
+    public ComplexMessage(String from, String fromAlias, String subject, String[] tos, String[] ccs, String[] bccs, String[] replys, String content, List<String> attachs) {
         super(from, fromAlias, subject, tos, ccs, bccs, replys, content);
+        this.attachs = attachs;
     }
 }

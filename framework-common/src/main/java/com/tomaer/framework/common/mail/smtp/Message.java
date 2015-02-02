@@ -163,7 +163,7 @@ public class Message implements Serializable {
     }
 
     public String getContent() {
-        retur content;
+        return content;
     }
 
     public void setContent(String content) {

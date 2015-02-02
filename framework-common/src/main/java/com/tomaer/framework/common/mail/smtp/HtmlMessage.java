@@ -16,19 +16,19 @@
 package com.tomaer.framework.common.mail.smtp;
 
 /**
- * Description:简单格式的邮件信息主体,常用于简单的文本格式
+ * Description:
  * Author: tomaer
  * Version: 1.0
- * Date: 2015/2/2 16:23
+ * Date: 2015/2/2 17:11
  */
-public class SimpleMessage extends Message {
+public class HtmlMessage extends Message {
 
-    private static final long serialVersionUID = -2966915199420419977L;
+    private static final long serialVersionUID = -7289447097442046721L;
 
     /**
      * 默认构造方法
      */
-    public SimpleMessage() {
+    public HtmlMessage() {
         super();
     }
 
@@ -43,7 +43,7 @@ public class SimpleMessage extends Message {
      * @param replys
      * @param content
      */
-    public SimpleMessage(String from, String fromAlias, String subject, String[] tos, String[] ccs, String[] bccs, String[] replys, String content) {
+    public HtmlMessage(String from, String fromAlias, String subject, String[] tos, String[] ccs, String[] bccs, String[] replys, String content) {
         super(from, fromAlias, subject, tos, ccs, bccs, replys, content);
     }
 }
