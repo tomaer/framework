@@ -32,12 +32,12 @@ public class MailAuthenticator extends Authenticator implements Serializable {
     /**
      * 认证账号,一般指邮件全地址,例如abc@xxx.com 
      */
-    private String account;
+    protected String account;
     
     /**
      * 认证密码
      */
-    private String password;
+    protected String password;
 
     /**
      * 默认构造方法
