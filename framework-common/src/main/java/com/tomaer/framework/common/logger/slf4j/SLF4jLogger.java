@@ -27,9 +27,8 @@ import com.tomaer.framework.common.logger.LoggerExt;
 public class SLF4jLogger extends LoggerExt{
 
 	private static final long serialVersionUID = -8707815585569912867L;
-
-	public SLF4jLogger(Logger logger) {
-		super(logger);
+	public SLF4jLogger(org.slf4j.Logger logger) {
+		super((Logger) logger);
 	}
 	
 }

@@ -39,11 +39,11 @@ public class SLF4jLoggerAdapter implements LoggerAdapter {
     private File file;
 
     public Logger getLogger(Class<?> clazz) {
-        return new SLF4jLogger((Logger) org.slf4j.LoggerFactory.getLogger(clazz));
+        return new SLF4jLogger(org.slf4j.LoggerFactory.getLogger(clazz));
     }
 
     public Logger getLogger(String name) {
-        return new SLF4jLogger((Logger) org.slf4j.LoggerFactory.getLogger(name));
+        return new SLF4jLogger(org.slf4j.LoggerFactory.getLogger(name));
     }
 
     public Level getLevel() {

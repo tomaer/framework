@@ -31,36 +31,39 @@ public abstract class AbstractLogger implements Logger,Serializable {
     
     private static final long serialVersionUID = -964113662309196432L;
 
-    private static final int RANDOM_KEY_LENGTH = 6;
-    private static final String POSSIBLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-    
+    public void setLogger(Logger logger) {
 
-    private static ThreadLocal<Object> threadlocal_UniqueKey = new ThreadLocal<Object>() {
-        @Override
-        protected synchronized Object initialValue() {
-            return RandomStringUtils.random(RANDOM_KEY_LENGTH, POSSIBLE_CHARS);
-        }
-    };
+	}
 
-    public static String getUniqueKey() {
-        return ((String) threadlocal_UniqueKey.get());
-    }
+	private static final int RANDOM_KEY_LENGTH = 6;
+	private static final String POSSIBLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-    public static void setUniqueKey() {
-        threadlocal_UniqueKey.set(RandomStringUtils.random(RANDOM_KEY_LENGTH, POSSIBLE_CHARS));
-    }
+	private static ThreadLocal<Object> threadlocal_UniqueKey = new ThreadLocal<Object>() {
+		@Override
+		protected synchronized Object initialValue() {
+			return RandomStringUtils.random(RANDOM_KEY_LENGTH, POSSIBLE_CHARS);
+		}
+	};
 
-    public static void destoryUniqueKey() {
-        threadlocal_UniqueKey.set(null);
-    }
+	public static String getUniqueKey() {
+		return ((String) threadlocal_UniqueKey.get());
+	}
 
-    protected String formatMessage(final Object message, final Object... objects) {
-        String msg = "";
-        if (message == null || StringUtils.isBlank(message.toString())) {
-            return msg;
-        }
-        msg = message.toString().replace("'", "''");
-        msg = MessageFormat.format(msg, objects);
-        return msg;
-    }
+	public static void setUniqueKey() {
+		threadlocal_UniqueKey.set(RandomStringUtils.random(RANDOM_KEY_LENGTH, POSSIBLE_CHARS));
+	}
+
+	public static void destoryUniqueKey() {
+		threadlocal_UniqueKey.set(null);
+	}
+
+	protected String formatMessage(final Object message, final Object... objects) {
+		String msg = "";
+		if (message == null || StringUtils.isBlank(message.toString())) {
+			return msg;
+		}
+		msg = message.toString().replace("'", "''");
+		msg = MessageFormat.format(msg, objects);
+		return msg;
+	}
 }

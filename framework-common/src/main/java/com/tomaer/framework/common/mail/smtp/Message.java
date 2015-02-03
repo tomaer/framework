@@ -15,15 +15,17 @@
  */
 package com.tomaer.framework.common.mail.smtp;
 
-import com.tomaer.framework.common.logger.Logger;
-import com.tomaer.framework.common.logger.LoggerFactory;
-import org.apache.commons.lang3.StringUtils;
-
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.tomaer.framework.common.logger.Logger;
+import com.tomaer.framework.common.logger.LoggerFactory;
 
 /**
  * Description:邮件主体信息,包括邮件中常用的属性

@@ -77,5 +77,5 @@ public class LoggerFactory {
     public static File getFile() {
         return LOGGER_ADAPTER.getFile();
     }
-    
+
 }
