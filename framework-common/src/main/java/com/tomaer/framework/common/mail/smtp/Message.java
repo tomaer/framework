@@ -179,10 +179,10 @@ public class Message implements Serializable {
         if (StringUtils.isNotBlank(from)) {
             try {
                 if (StringUtils.isNotBlank(fromAlias)) {
-                    logger.debug("From address is {0},Alias is {1}", new Object[]{from, fromAlias});
+                    logger.debug("From address is {0},Alias is {1}", from, fromAlias);
                     return new InternetAddress(from, fromAlias);
                 } else {
-                    logger.debug("From address is {0}", new Object[]{from});
+                    logger.debug("From address is {0}", from);
                     return new InternetAddress(from);
                 }
 
@@ -201,7 +201,7 @@ public class Message implements Serializable {
         }
         InternetAddress[] address = new InternetAddress[tos.length];
         for (int i = 0; i < tos.length; i++) {
-            logger.debug("To address is {0}", new Object[]{tos[i]});
+            logger.debug("To address is {0}", tos[i]);
             address[i] = new InternetAddress(tos[i]);
         }
         return address;
@@ -214,7 +214,7 @@ public class Message implements Serializable {
         }
         InternetAddress[] address = new InternetAddress[ccs.length];
         for (int i = 0; i < ccs.length; i++) {
-            logger.debug("CC address is {0}", new Object[]{ccs[i]});
+            logger.debug("CC address is {0}", ccs[i]);
             address[i] = new InternetAddress(ccs[i]);
         }
         return address;
@@ -227,7 +227,7 @@ public class Message implements Serializable {
         }
         InternetAddress[] address = new InternetAddress[bccs.length];
         for (int i = 0; i < bccs.length; i++) {
-            logger.debug("BCC address is {0}", new Object[]{bccs[i]});
+            logger.debug("BCC address is {0}", bccs[i]);
             address[i] = new InternetAddress(bccs[i]);
         }
         return address;
@@ -240,7 +240,7 @@ public class Message implements Serializable {
         }
         InternetAddress[] address = new InternetAddress[replys.length];
         for (int i = 0; i < replys.length; i++) {
-            logger.debug("Reply address is {0}", new Object[]{replys[i]});
+            logger.debug("Reply address is {0}", replys[i]);
             address[i] = new InternetAddress(replys[i]);
         }
         return address;

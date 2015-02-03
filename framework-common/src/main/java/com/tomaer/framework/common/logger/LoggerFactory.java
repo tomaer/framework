@@ -15,9 +15,12 @@
  */
 package com.tomaer.framework.common.logger;
 
+import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
+import com.tomaer.framework.common.logger.slf4j.SLF4jLoggerAdapter;
 
 /**
  * Description:
@@ -28,10 +31,10 @@ import java.util.concurrent.ConcurrentMap;
 public class LoggerFactory {
 
     private static volatile LoggerAdapter LOGGER_ADAPTER;
-    private static final ConcurrentMap<String, AbstractLogger> LOGGERS = new ConcurrentHashMap<String, AbstractLogger>();
+    private static final ConcurrentMap<String, LoggerExt> LOGGERS = new ConcurrentHashMap<String, LoggerExt>();
 
     private LoggerFactory() {
-
+    	setAdapter(new SLF4jLoggerAdapter());
     }
 
     public static void setAdapter(LoggerAdapter adapter) {
@@ -40,7 +43,7 @@ public class LoggerFactory {
             logger.debug("Useing Logger Adapter : " + adapter.getClass().getName());
             logger.debug("Useing Logger Provider : " + logger.getClass().getName());
             LoggerFactory.LOGGER_ADAPTER = adapter;
-            for (Map.Entry<String, AbstractLogger> entry : LOGGERS.entrySet()) {
+            for (Map.Entry<String, LoggerExt> entry : LOGGERS.entrySet()) {
                 entry.getValue().setLogger(LOGGER_ADAPTER.getLogger(entry.getKey()));
             }
         }

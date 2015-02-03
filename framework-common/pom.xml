@@ -59,12 +59,14 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
+            <scope>compile</scope>
             <optional>true</optional>
         </dependency>
         <!-- logback-classic -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <scope>compile</scope>
             <optional>true</optional>
         </dependency>
         <!-- javamail -->

@@ -33,6 +33,7 @@ public abstract class AbstractLogger implements Logger,Serializable {
 
     private static final int RANDOM_KEY_LENGTH = 6;
     private static final String POSSIBLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    
 
     private static ThreadLocal<Object> threadlocal_UniqueKey = new ThreadLocal<Object>() {
         @Override

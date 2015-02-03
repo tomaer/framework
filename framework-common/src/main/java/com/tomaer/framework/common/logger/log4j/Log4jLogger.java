@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tomaer.framework.common.logger.slf4j;
+package com.tomaer.framework.common.logger.log4j;
 
 import com.tomaer.framework.common.logger.Logger;
 import com.tomaer.framework.common.logger.LoggerExt;
@@ -22,14 +22,14 @@ import com.tomaer.framework.common.logger.LoggerExt;
  * Description:
  * Author: tomaer
  * Version: 1.0
- * Date: 2015/2/2 21:36
+ * Date: 2015/2/3 13:17
  */
-public class SLF4jLogger extends LoggerExt{
+public class Log4jLogger extends LoggerExt {
 
-	private static final long serialVersionUID = -8707815585569912867L;
+    private static final long serialVersionUID = 5372819448041684247L;
 
-	public SLF4jLogger(Logger logger) {
-		super(logger);
-	}
-	
+
+    public Log4jLogger(Logger logger) {
+        super(logger);
+    }
 }
