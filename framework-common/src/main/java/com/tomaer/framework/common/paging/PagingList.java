@@ -27,8 +27,14 @@ import java.util.List;
 public class PagingList<E> implements Serializable {
 
     private static final long serialVersionUID = 3233079531706248991L;
-    
+
+    /**
+     * 数据集合
+     */
     private List<E> data;
+    /**
+     * 分页对象
+     */
     private Paging paging;
 
     public List<E> getData() {
