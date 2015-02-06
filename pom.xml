@@ -30,6 +30,7 @@
     <modules>
         <module>framework-common</module>
         <module>framework-core</module>
+        <module>framework-web</module>
     </modules>
 
     <developers>
