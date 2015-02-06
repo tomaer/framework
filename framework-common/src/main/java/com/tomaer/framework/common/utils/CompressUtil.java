@@ -36,7 +36,7 @@ public class CompressUtil {
      * @param source 源文件路径
      * @param target zip文件存放路径
      */
-    public static void compress2ZIP(String source,final String target){
+    public static void compress2ZIP(final String source,final String target){
         if(StringUtils.isBlank(source) || StringUtils.isBlank(target)){
             logger.error("");
             throw new IllegalArgumentException("");
@@ -45,12 +45,11 @@ public class CompressUtil {
     
     public static void compress2AR(){
         
-        
     }
     
     
-    public static void unZIP(String source,final String target){
-    
+    public static void unZIP(final String source,final String target){
+
     }
     
 }

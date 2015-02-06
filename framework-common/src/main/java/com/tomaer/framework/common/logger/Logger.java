@@ -23,63 +23,63 @@ package com.tomaer.framework.common.logger;
  */
 public interface Logger {
 
-    void trace(final String message);
+	void trace(final String message);
 
-    void trace(final String message, final Throwable e);
+	void trace(final String message, final Throwable e);
 
-    void trace(final String message, final Object... obj);
+	void trace(final String message, final Object... obj);
 
-    void trace(final String message, final Throwable e, final Object... obj);
+	void trace(final String message, final Throwable e, final Object... obj);
 
-    void trace(final Throwable e);
+	void trace(final Throwable e);
 
-    void debug(final String message);
+	void debug(final String message);
 
-    void debug(final String message, final Throwable e);
+	void debug(final String message, final Throwable e);
 
-    void debug(final String message, final Object... obj);
+	void debug(final String message, final Object... obj);
 
-    void debug(final String message, final Throwable e, final Object... obj);
+	void debug(final String message, final Throwable e, final Object... obj);
 
-    void debug(final Throwable e);
+	void debug(final Throwable e);
 
-    void info(final String message);
+	void info(final String message);
 
-    void info(final String message, final Throwable e);
+	void info(final String message, final Throwable e);
 
-    void info(final String message, final Object... obj);
+	void info(final String message, final Object... obj);
 
-    void info(final String message, final Throwable e, final Object... obj);
+	void info(final String message, final Throwable e, final Object... obj);
 
-    void info(final Throwable e);
+	void info(final Throwable e);
 
-    void warn(final String message);
+	void warn(final String message);
 
-    void warn(final String message, final Throwable e);
+	void warn(final String message, final Throwable e);
 
-    void warn(final String message, final Object... obj);
+	void warn(final String message, final Object... obj);
 
-    void warn(final String message, final Throwable e, final Object... obj);
+	void warn(final String message, final Throwable e, final Object... obj);
 
-    void warn(final Throwable e);
+	void warn(final Throwable e);
 
-    void error(final String message);
+	void error(final String message);
 
-    void error(final String message, final Throwable e);
+	void error(final String message, final Throwable e);
 
-    void error(final String message, final Object... obj);
+	void error(final String message, final Object... obj);
 
-    void error(final String message, final Throwable e, final Object... obj);
+	void error(final String message, final Throwable e, final Object... obj);
 
-    void error(final Throwable e);
+	void error(final Throwable e);
 
-    boolean isTraceEnabled();
+	boolean isTraceEnabled();
 
-    boolean isDebugEnabled();
+	boolean isDebugEnabled();
 
-    boolean isInfoEnabled();
+	boolean isInfoEnabled();
 
-    boolean isWarnEnabled();
+	boolean isWarnEnabled();
 
-    boolean isErrorEnabled();
+	boolean isErrorEnabled();
 }

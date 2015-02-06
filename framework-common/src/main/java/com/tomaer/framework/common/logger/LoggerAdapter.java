@@ -25,15 +25,15 @@ import java.io.File;
  */
 public interface LoggerAdapter {
     
-    Logger getLogger(Class<?> clazz);
+	Logger getLogger(Class<?> clazz);
 
-    Logger getLogger(String name);
+	Logger getLogger(String name);
 
-    void setLevel(Level level);
+	void setLevel(Level level);
 
-    Level getLevel();
+	Level getLevel();
 
-    File getFile();
+	File getFile();
 
-    void setFile(File file);
+	void setFile(File file);
 }

@@ -22,5 +22,5 @@ package com.tomaer.framework.common.logger;
  * Date: 2015/2/2 21:27
  */
 public enum Level {
-    ALL, TRACE, DEBUG, INFO, WARN, ERROR, OFF
+	ALL, TRACE, DEBUG, INFO, WARN, ERROR, OFF
 }

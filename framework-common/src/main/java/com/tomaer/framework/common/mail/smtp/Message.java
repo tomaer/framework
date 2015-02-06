@@ -210,42 +210,39 @@ public class Message implements Serializable {
     }
 
     public InternetAddress[] getCcAddress() throws AddressException {
-        if (null == ccs && ccs.length == 0) {
-            logger.error("CC address is not allow empty");
-            throw new IllegalArgumentException("CC address is not allow empty");
+        if (null != ccs && ccs.length > 0) {
+        	InternetAddress[] address = new InternetAddress[ccs.length];
+            for (int i = 0; i < ccs.length; i++) {
+                logger.debug("CC address is {0}", ccs[i]);
+                address[i] = new InternetAddress(ccs[i]);
+            }
+            return address;
         }
-        InternetAddress[] address = new InternetAddress[ccs.length];
-        for (int i = 0; i < ccs.length; i++) {
-            logger.debug("CC address is {0}", ccs[i]);
-            address[i] = new InternetAddress(ccs[i]);
-        }
-        return address;
+        return null;
     }
 
     public InternetAddress[] getBccAddress() throws AddressException {
-        if (null == bccs && bccs.length == 0) {
-            logger.error("BCC address is not allow empty");
-            throw new IllegalArgumentException("BCC address is not allow empty");
+        if (null != bccs && bccs.length > 0) {
+        	InternetAddress[] address = new InternetAddress[bccs.length];
+            for (int i = 0; i < bccs.length; i++) {
+                logger.debug("BCC address is {0}", bccs[i]);
+                address[i] = new InternetAddress(bccs[i]);
+            }
+            return address;
         }
-        InternetAddress[] address = new InternetAddress[bccs.length];
-        for (int i = 0; i < bccs.length; i++) {
-            logger.debug("BCC address is {0}", bccs[i]);
-            address[i] = new InternetAddress(bccs[i]);
-        }
-        return address;
+        return null;
     }
 
     public InternetAddress[] getReplyAddress() throws AddressException {
-        if (null == replys && replys.length == 0) {
-            logger.error("Reply address is not allow empty");
-            throw new IllegalArgumentException("Reply address is not allow empty");
+        if (null != replys && replys.length > 0) {
+            InternetAddress[] address = new InternetAddress[replys.length];
+            for (int i = 0; i < replys.length; i++) {
+                logger.debug("Reply address is {0}", replys[i]);
+                address[i] = new InternetAddress(replys[i]);
+            }
+            return address;
         }
-        InternetAddress[] address = new InternetAddress[replys.length];
-        for (int i = 0; i < replys.length; i++) {
-            logger.debug("Reply address is {0}", replys[i]);
-            address[i] = new InternetAddress(replys[i]);
-        }
-        return address;
+        return null;
     }
 
     @Override

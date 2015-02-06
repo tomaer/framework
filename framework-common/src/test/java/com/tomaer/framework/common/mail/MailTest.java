@@ -39,7 +39,7 @@ public class MailTest extends BaseCommonTest{
     @Test
     public void testSendSimpleMessage(){
         SimpleMessage message = new SimpleMessage();
-        message.setFrom("i@tomaer.com");
+        message.setFrom("eduservice@lirenkj.com");
         message.setFromAlias("tomaer");
         message.setSubject("This is a test email from tomaer");
         message.setTos(new String[]{"tomaer@126.com","tomaer@foxmail.com"});

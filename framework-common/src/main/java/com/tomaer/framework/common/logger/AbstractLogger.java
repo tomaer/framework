@@ -22,17 +22,14 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 
 /**
- * Description:
- * Author: tomaer
- * Version: 1.0
- * Date: 2015/2/2 21:30
+ * Description: Author: tomaer Version: 1.0 Date: 2015/2/2 21:30
  */
-public abstract class AbstractLogger implements Logger,Serializable {
-    
-    private static final long serialVersionUID = -964113662309196432L;
+public abstract class AbstractLogger implements Logger, Serializable {
 
-    public void setLogger(Logger logger) {
+	private static final long serialVersionUID = -964113662309196432L;
 
+	public void setLogger(Logger log) {
+		
 	}
 
 	private static final int RANDOM_KEY_LENGTH = 6;
@@ -50,14 +47,16 @@ public abstract class AbstractLogger implements Logger,Serializable {
 	}
 
 	public static void setUniqueKey() {
-		threadlocal_UniqueKey.set(RandomStringUtils.random(RANDOM_KEY_LENGTH, POSSIBLE_CHARS));
+		threadlocal_UniqueKey.set(RandomStringUtils.random(RANDOM_KEY_LENGTH,
+				POSSIBLE_CHARS));
 	}
 
 	public static void destoryUniqueKey() {
 		threadlocal_UniqueKey.set(null);
 	}
 
-	protected String formatMessage(final Object message, final Object... objects) {
+	protected String formatMessage(final Object message,
+			final Object... objects) {
 		String msg = "";
 		if (message == null || StringUtils.isBlank(message.toString())) {
 			return msg;
