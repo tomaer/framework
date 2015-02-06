@@ -9,5 +9,5 @@
 /*.jar
 
 ### For IntelliJ IDEA
-/*.iml
-/.idea
+*.iml
+.idea
