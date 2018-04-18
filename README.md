@@ -1,8 +1,9 @@
 ### 阿里云CoreOS初探
 
-通过阿里云的管理控制台安装一台coreos虚机,登录之后第一件事情就是升级`systemctl start update-engine && update_engine_client -update && reboot`
-然后禁用`root`用户直接登录系统, `send -i `` /etc/ssh/sshd_config PermitRootLogin no PasswordAuthentication no` systemctl restart sshd
-
+通过阿里云的管理控制台安装一台coreos虚机,登录之后第一件事情就是升级  
+`systemctl start update-engine && update_engine_client -update && reboot`
+然后禁用`root`用户直接登录系统  
+`send -i `` /etc/ssh/sshd_config PermitRootLogin no PasswordAuthentication no` systemctl restart sshd
 
 cat /usr/share/oem/coreos-install.json
 
