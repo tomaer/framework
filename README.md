@@ -23,7 +23,7 @@ sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd ~/.ssh && sudo chown core:core 
 
 ```
 curl -w "\n" 'https://discovery.etcd.io/new?size=3'
-https://discovery.etcd.io/0a3b39f0b5a8d725ac709f41407e7264
+https://discovery.etcd.io/8420915722a2d332ca78950d43415c4e
 ```
 vi cloud-config.yaml 请注意
 ```
@@ -33,7 +33,7 @@ coreos:
   etcd2:
     # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
     # specify the initial size of your cluster with ?size=X
-    discovery: https://discovery.etcd.io/0a3b39f0b5a8d725ac709f41407e7264
+    discovery: https://discovery.etcd.io/8420915722a2d332ca78950d43415c4e
     # multi-region and multi-cloud deployments need to use $public_ipv4
     advertise-client-urls: http://$private_ipv4:2379,http://$private_ipv4:4001
     initial-advertise-peer-urls: http://$private_ipv4:2380
@@ -42,6 +42,10 @@ coreos:
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
     listen-peer-urls: http://$private_ipv4:2380
   units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
     - name: docker.service
       command: start
   update:
