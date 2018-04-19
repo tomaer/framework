@@ -27,3 +27,11 @@ Broadcast Receiver
   * com.alipay.mobile.rome.pushservice.merchant.MerchantBroadcastReceiver
   * com.alipay.android.phone.mobilecommon.dynamicrelease.SyncConfigReceiver
   
+##### 腾讯视频(6.0.6 14914)
+Service
+  * DexClassLoaderProviderService
+  * DownloadService
+  * LoginService
+  * OfflineCacheService
+  * PlayService
+  * PreCacheService
