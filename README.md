@@ -97,3 +97,6 @@ cat /usr/share/oem/grub.cfg
 ```
 set linux_append="$linux_append coreos.config.url=oem:///coreos-install.json ipv6.disable=1"
 ```
+
+参考资料:
+ * ![cluster-architectures](https://coreos.com/os/docs/latest/cluster-architectures.html)
