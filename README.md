@@ -18,6 +18,9 @@ su - core
 sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd .ssh && sudo chown core:core authorized_keys
 ```
 
+系统升级  
+```sudo systemctl start update-engine && update_engine_client -update && reboot```
+
 ```
 curl -w "\n" 'https://discovery.etcd.io/new?size=3'
 https://discovery.etcd.io/0a3b39f0b5a8d725ac709f41407e7264
@@ -47,9 +50,10 @@ coreos:
     window-start: Wed 20:00
     window-length: 1h
 ```
+初始化引导系统
+```sudo coreos-cloudinit --from-file cloud-config.yaml```
 
-系统升级  
-```sudo systemctl start update-engine && update_engine_client -update && reboot```
+
 
 
 cat /usr/share/oem/coreos-install.json
