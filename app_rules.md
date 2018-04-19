@@ -9,7 +9,7 @@ Service
   * mtopsdk.xstate.XStateService
   * com.alipay.android.phone.barcode.BarcodeService
   * com.alipay.android.phone.easybarcode.EasyBarcodeService
-  * com.alipay.android.phone.mobilesdk.permission.utils.FakeService
+  * com.alipay.android.phone.mobilesdk.permission.utils.FakeService
   * com.alipay.mobile.nebulaapproxy.api.download.H5ExternalDownloadIntentService
   * com.alipay.mobile.liteprocess.ipc.IpcCallServer
   * com.alipay.mobile.liteprocess.ipc.IpcMsgServer
