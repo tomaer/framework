@@ -19,7 +19,7 @@ sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd ~/.ssh && sudo chown core:core 
 ```
 
 系统升级  
-```sudo systemctl start update-engine && update_engine_client -update && reboot```
+```sudo systemctl start update-engine && update_engine_client -update && sudo reboot```
 
 ```
 curl -w "\n" 'https://discovery.etcd.io/new?size=3'
