@@ -15,7 +15,7 @@ systemctl restart sshd
 一切操作尽量使用core用户进行操作,为core用户设置秘钥对
 ```
 su - core
-sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd .ssh && sudo chown core:core authorized_keys
+sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd ~/.ssh && sudo chown core:core authorized_keys
 ```
 
 系统升级  
