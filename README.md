@@ -18,6 +18,36 @@ su - core
 sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd .ssh && sudo chown core:core authorized_keys
 ```
 
+```
+curl -w "\n" 'https://discovery.etcd.io/new?size=3'
+https://discovery.etcd.io/0a3b39f0b5a8d725ac709f41407e7264
+```
+vi cloud-config.yaml 请注意
+```
+#cloud-config
+hostname: "dockerhost01_cluster01"
+coreos:
+  etcd2:
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
+    # specify the initial size of your cluster with ?size=X
+    discovery: https://discovery.etcd.io/0a3b39f0b5a8d725ac709f41407e7264
+    # multi-region and multi-cloud deployments need to use $public_ipv4
+    advertise-client-urls: http://$private_ipv4:2379,http://$private_ipv4:4001
+    initial-advertise-peer-urls: http://$private_ipv4:2380
+    # listen on both the official ports and the legacy ports
+    # legacy ports can be omitted if your application doesn't depend on them
+    listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
+    listen-peer-urls: http://$private_ipv4:2380
+  units:
+    - name: docker.service
+      command: start
+  update:
+    reboot-strategy: etcd-lock
+  locksmith:
+    window-start: Wed 20:00
+    window-length: 1h
+```
+
 系统升级  
 ```sudo systemctl start update-engine && update_engine_client -update && reboot```
 
