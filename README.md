@@ -99,4 +99,4 @@ set linux_append="$linux_append coreos.config.url=oem:///coreos-install.json ipv
 ```
 
 参考资料:
- * ![cluster-architectures](https://coreos.com/os/docs/latest/cluster-architectures.html)
+ * [cluster-architectures](https://coreos.com/os/docs/latest/cluster-architectures.html)
