@@ -1,9 +1,12 @@
 ### 阿里云CoreOS初探
 
-使用秘钥对管理服务器比密码更加安全,使用如下命令来生成秘钥对,如果为了安全考虑可以对秘钥对设置密码,这里不设置,直接回车.其中example为秘钥,example.pub为公钥  
+#### 安装操作系统
+使用秘钥对管理服务器比密码更加安全,使用如下命令来生成秘钥对,如果为了安全考虑可以对秘钥对设置密码,这里不设置,直接回车.其中example为秘钥,example.pub为公钥  
 `ssh-keygen -t rsa -C "your email address" -f .ssh/example`
 
 在控制台导入秘钥对,路径为 `云服务器ECS` -> `秘钥对`,注意选择地区(实例列表), 不同地区的秘钥对不能通用, 起个名字,导入公钥内容即可
+
+我们选择3台`ECS`,配置根据自己的需要.本文不设计到挂载磁盘,均为标准的40G的系统盘. 操作系统选择`CoreOS`,版本选择最新的64位, 选择秘钥认证方式即可.
 
 禁用`root`用户直接登录系统并且关闭密码登录  
 ```
@@ -18,11 +21,10 @@ su - core
 sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd ~/.ssh && sudo chown core:core authorized_keys
 ```
 
-系统升级  
+#### 升级操作系统
 ```sudo systemctl start update-engine && update_engine_client -update && sudo reboot```
 
 #### 准备初始化配置文件
-
 ```
 curl -w "\n" 'https://discovery.etcd.io/new?size=3'
 https://discovery.etcd.io/8420915722a2d332ca78950d43415c4e
