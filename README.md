@@ -14,6 +14,8 @@ sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 # sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config  
 systemctl restart sshd
 ```
+修改`SELinux`
+```sed -i 's/SELINUX=disabled/SELINUX=permissive/g' /etc/selinux/config```
 
 一切操作尽量使用core用户进行操作,为core用户设置秘钥对
 ```
