@@ -7,8 +7,8 @@
 
 禁用`root`用户直接登录系统并且关闭密码登录  
 ```
-sed -i `s/PermitRootLogin yes/PermitRootLogin no` /etc/ssh/sshd_config  
-# sed -i `s/PasswordAuthentication yes/PasswordAuthentication no` /etc/ssh/sshd_config  
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config  
+# sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config  
 systemctl restart sshd
 ```
 
