@@ -21,6 +21,8 @@ sudo cp /root/.ssh/authorized_keys ~/.ssh/ && cd ~/.ssh && sudo chown core:core 
 系统升级  
 ```sudo systemctl start update-engine && update_engine_client -update && sudo reboot```
 
+#### 准备初始化配置文件
+
 ```
 curl -w "\n" 'https://discovery.etcd.io/new?size=3'
 https://discovery.etcd.io/8420915722a2d332ca78950d43415c4e
