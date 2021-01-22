@@ -1,6 +1,5 @@
 {
     "department": [
-        
         {
             "autoAddUser": true,
             "createDeptGroup": true,
