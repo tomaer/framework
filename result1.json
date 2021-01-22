@@ -3,7 +3,7 @@
         {
             "autoAddUser": true,
             "createDeptGroup": true,
-            "ext": "{\"faceCount\":\"14\"}",
+            "ext": {"faceCount":"14"},
             "id": 97199220,
             "name": "技术团队",
             "parentid": 1
